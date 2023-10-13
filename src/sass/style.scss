@@ -7,22 +7,22 @@ $color-primary-400: #0066ff;
 $ff-sans: 'Open Sans', sans-serif;
 
 // font-sizes
-$fs-900: 3.75rem;   // 60px
-$fs-800: 3rem;      // 48px
-$fs-600: 1.5rem;    // 24px
+$fs-900: 3.75rem; // 60px
+$fs-800: 3rem; // 48px
+$fs-600: 1.5rem; // 24px
 $fs-500: 1.3125rem; // 21px
-$fs-400: 1.125rem;  // 18px
+$fs-400: 1.125rem; // 18px
 
 // font-weights
 $fw-400: 400;
 $fw-700: 700;
 
 // size/spacing values (Including the border-width)
-$size-8: 0.5rem; 
+$size-8: 0.5rem;
 $size-12: 0.75rem; // (not in design)
 $size-16: 1rem;
-$size-20: 1.25rem; 
-$size-32: 2rem;  
+$size-20: 1.25rem;
+$size-32: 2rem;
 $size-36: 2.25rem;
 
 // basic reset
@@ -37,6 +37,7 @@ $size-36: 2.25rem;
   padding: 0;
   font: inherit;
 }
+
 // body
 body {
   font-size: $fs-400;
@@ -46,6 +47,7 @@ body {
   font-family: $ff-sans;
   text-align: center;
 }
+
 //container
 .container {
   width: min(100% - 2rem, 60rem);
@@ -62,20 +64,24 @@ body {
 
 .pricing-plans {
   border: $size-8 solid $color-primary-400;
-  display:flex;
+  display: flex;
 }
 
 .tier {
-  flex:1;
+  flex: 1;
   padding: $size-36;
-  
-  display:grid;
+
+  display: grid;
   gap: $size-20;
 
   &__title {
     text-transform: uppercase;
     font-weight: $fw-700;
     color: $color-primary-400;
+
+    .inverted & {
+      color: $color-neutral-100;
+    }
   }
 
   &__feature-list {
@@ -86,10 +92,14 @@ body {
     &:not(:last-child)::after {
       content: "";
       display: block;
-      height:1px;
+      height: 1px;
       margin-block: $size-20;
       background-color: $color-neutral-900;
-      opacity:0.2;
+      opacity: 0.2;
+
+      .inverted & {
+        background-color: $color-neutral-100;
+      }
     }
   }
 
@@ -101,20 +111,37 @@ body {
       font-weight: $fw-400;
       font-size: $fs-600;
     }
+  }
+}
 
 
+.button {
+  cursor: pointer;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: $fw-700;
+  color: $color-neutral-100;
+  background-color: $color-primary-400;
+  padding: 1em 1.5em;
+
+  justify-self: center;
+
+  .inverted & {
+    color: $color-primary-400;
+    background-color: $color-neutral-100;
   }
 
-  .button {
-    cursor:pointer;
-    border:0;
-    text-transform: uppercase;
-    font-weight: $fw-700;
-    color:$color-neutral-100;
-    background-color: $color-primary-400;
-
-    justify-self: center;
-
+  &:hover, &:focus {
+    color: $color-neutral-100;
+    background-color: rgba($color-neutral-900,0.75);
   }
 
+}
+
+
+//inverted class
+
+.inverted {
+  background: $color-primary-400;
+  color: $color-neutral-100;
 }
